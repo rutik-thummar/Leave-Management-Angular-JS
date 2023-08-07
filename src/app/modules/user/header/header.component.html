@@ -1,0 +1,25 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow mt-80">
+    <div class="container-fluid  ">
+      <a class="navbar-brand d-flex me-auto d-flex justify-content-end align-items-center ">
+        <img src="../../../../assets/logo.png" alt="" class="img-fluid logo-h pe-2">
+        <h1 class="fs-4">Employee Desk</h1>
+      </a>
+      <div class="collapse navbar-collapse   " id="navbarSupportedContent">
+        <ul class="navbar-nav   mb-2 mb-lg-0 ms-auto pe-5 gap-lg-3 align-items-lg-center">
+          <li class="nav-item">
+            <a class="nav-link " aria-current="page" routerLink="./home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="./viewleave">Leave</a>
+          </li>
+          <li class="nav-item point">
+            <a routerLink="./profile" style="color:#117964; "> {{name}} <i class="fa-solid fa-user"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="logout()">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>

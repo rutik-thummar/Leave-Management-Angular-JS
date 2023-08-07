@@ -1,0 +1,148 @@
+<div class="container pt-50px">
+  <button id="btnOpenForm" class="btn btn-outline-primary">Add Leave</button>
+  <div class="table-responsive box">
+    <table id="dataTable" class="table ">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>From Date</th>
+          <th>To Date</th>
+          <th>Leave Type</th>
+          <th>Reason</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let leave of leaves ;index as i ">
+          <td>{{i+1}}</td>
+          <td>{{leave.fromDate |date:'dd/MM/YYYY'}}</td>
+          <td>
+            <span *ngIf="leave.type=='Half'" style="margin-left: 2rem;">
+              __
+            </span>
+            <span *ngIf="leave.type=='Full'">
+              {{leave.toDate |date:'dd/MM/YYYY'}}
+            </span>
+          </td>
+          <td *ngIf="leave.type=='Half'">{{leave.type}} Day ({{leave.slot}})</td>
+          <td *ngIf="leave.type=='Full'">{{leave.type}} Day</td>
+          <td>{{leave.reason}}</td>
+          <td *ngIf="leave.status=='Approved'" [ngClass]="'text-success'"> {{leave.status}}</td>
+          <td *ngIf="leave.status=='Rejected'" [ngClass]="'text-danger'"> {{leave.status}}</td>
+          <td *ngIf="leave.status=='Pending'" [ngClass]="'text-warning'"> {{leave.status}}</td>
+          <td *ngIf="leave.status=='Pending'">
+            <button class="btn btn-outline-primary" (click)="updateRecord(leave.id)">Update</button>&nbsp;
+          </td>
+          <td *ngIf="leave.status!='Pending'">
+            <button type="button" class="btn btn-outline-secondary" disabled
+              (click)="updateRecord(leave.id)">Update</button>&nbsp;
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="form-popup-bg">
+  <div class="form-container">
+    <button id="btnCloseForm" class="close-button"> X </button>
+    <h1 id="center" class="text-center">Leave</h1>
+    <form action="">
+      <div class="form-group">
+        <label><b>Leave Type</b></label><br />
+        <label>
+          <input type="radio" name="type" [(ngModel)]="leave.type" value='Full'> Full
+        </label>
+        &nbsp;
+        <label>
+          <input type="radio" name="type" [(ngModel)]="leave.type" value="Half"> Half
+        </label>
+      </div>
+      <div *ngIf="leave.type=='Half'" class="form-group">
+        <label><b>Time Slot</b></label><br />
+        <label>
+          <input type="radio" name="slot" [(ngModel)]="leave.slot" value="Morning"> Morning
+        </label>
+        &nbsp;
+        <label>
+          <input type="radio" name="slot" [(ngModel)]="leave.slot" value="Evening"> Evening
+        </label>
+        <div class="form-group">
+          <label for="date"><b> Date</b></label>
+          <input type="date" class="form-control" [(ngModel)]="leave.fromDate" [min]="curDate | date:'yyyy-MM-dd'"
+           name="fromDate" required />
+        </div>
+      </div>
+      <div *ngIf="leave.type=='Full'" class="form-group">
+        <div class="form-group">
+          <label><b>From Date</b></label>
+          <input type="date" class="form-control" [min]="curDate | date:'yyyy-MM-dd'"
+           [(ngModel)]="leave.fromDate" name="fromDate" required />
+        </div>
+        <div class="form-group">
+          <label><b>To Date</b></label>
+          <input class="form-control" type="date" [min]="leave.fromDate" 
+            [(ngModel)]="leave.toDate" name="toDate" required />
+        </div>
+      </div>
+      <div class="form-group">
+        <label><b>Reason</b></label>
+        <textarea class="form-control" name="reason" rows="4" cols="50" [(ngModel)]="leave.reason" name="reason"
+          placeholder="Describe Reason here..." required></textarea>
+      </div>
+      <button type="button" class="btn btn-outline-primary " (click)="addLeave()"><b>Submit</b></button>
+    </form>
+  </div>
+</div>
+<div class="form-popup-bg-update">
+  <div class="form-container-update">
+    <button id="btnCloseFormForUpdate" class="close-button"> X </button>
+    <h1 id="center" class="text-center">Update Leave</h1>
+    <form ngNativeValidate>
+      <div class="form-group">
+        <label><b>Leave Type</b></label><br/>
+        <label>
+          <input type="radio" name="type" [(ngModel)]="leave.type" value='Full'> Full
+        </label>
+        &nbsp;
+        <label>
+          <input type="radio" name="type" [(ngModel)]="leave.type" value="Half"> Half
+        </label>
+      </div>
+      <div *ngIf="leave.type=='Half'" class="form-group">
+        <label><b>Time Slot</b></label><br />
+        <label>
+          <input type="radio" name="slot" [(ngModel)]="leave.slot" value="Morning"> Morning
+        </label>
+        &nbsp;
+        <label>
+          <input type="radio" name="slot" [(ngModel)]="leave.slot" value="Evening"> Evening
+        </label>
+        <div class="form-group">
+          <label><b> Date</b></label>
+          <input type="date" class="form-control" [min]="curDate | date:'yyyy-MM-dd'"
+             [(ngModel)]="leave.fromDate" name="fromDate" required />
+        </div>
+      </div>
+      <div *ngIf="leave.type=='Full'" class="form-group">
+        <div class="form-group">
+          <label><b>From Date</b></label>
+          <input type="date" class="form-control" [min]="curDate | date:'yyyy-MM-dd'"
+            [(ngModel)]="leave.fromDate" name="fromDate" required />
+        </div>
+        <div class="form-group">
+          <label><b>To Date</b></label>
+          <input class="form-control" type="date" [min]="leave.fromDate" 
+            [(ngModel)]="leave.toDate" name="toDate" required />
+        </div>
+      </div>
+      <div class="form-group">
+        <label><b>Reason</b></label>
+        <textarea class="form-control" name="reason" rows="4" cols="50" [(ngModel)]="leave.reason" name="reason"
+          placeholder="Describe Reason here..." required></textarea>
+      </div>
+      <button type="button" class="btn btn-outline-primary" (click)="updateLeave()"><b>Update</b></button>
+    </form>
+  </div>
+</div>

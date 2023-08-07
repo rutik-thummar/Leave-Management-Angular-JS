@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row ">
+        <div class="col-md-12">
+            <form [formGroup]="leaveReportForm" ngNativeValidate (ngSubmit)="download()">
+                <h3 class="text-center">Download Payslip</h3>
+                <br>
+                <div class="row">
+                    <div class="col-md-6">
+                        <select class="custom-select" formControlName="firstName">
+                            <option value="">Choose Employee Name</option>
+                            <option *ngFor="let emp of emps" [ngValue]="emp.firstName">{{emp.firstName}}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <input class="form-control" type="month" formControlName="selectedDate"
+                            [(ngModel)]="monthyear.monthOrYear" name="selectedDate">
+                    </div>
+                </div>
+                <br> <br> <button type="submit" class="btn btn-outline-secondary btn-lg btn-block">Download</button>
+            </form>
+        </div>
+
+    </div>
+
+</div>

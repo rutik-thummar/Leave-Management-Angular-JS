@@ -1,0 +1,39 @@
+
+<div class="container-fluid ptb-80">
+    <button routerLink="../add" type="button" id="down" class="btn btn-outline-primary mt-4">Add Employee</button>
+    <div class=" table-responsive">
+        <table id="dataTable" class="table" >
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Gender</th>
+                    <th>Joining Date</th>
+                    <th>Mobile No</th>
+                    <th>Salary</th>
+                    <th>Designation</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let emp of emps,index as i">
+                    <td>{{i+1}}</td>
+                    <td>{{emp.firstName}}</td>
+                    <td>{{emp.lastName}}</td>
+                    <td>{{emp.email}}</td>
+                    <td>{{emp.gender}}</td>
+                    <td>{{emp.joiningDate |date:'dd/MM/YYYY'}}</td>
+                    <td>{{emp.mobileNo}}</td>
+                    <td>{{emp.salary}}/-</td>
+                    <td>{{emp.designation}}</td>
+                    <td class="d-flex">
+                        <button type="button" class="btn btn-outline-danger" (click)="deleteRecord(emp.id)">Delete</button>&nbsp;&nbsp;
+                        <button type="button" class="btn btn-outline-primary" (click)="updateRecord(emp.id)">Update</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

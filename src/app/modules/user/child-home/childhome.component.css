@@ -1,0 +1,12 @@
+.img { 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.img img{
+  max-width: 60%;
+  object-fit: contain;
+}
+.child-heigh{
+    height: 90vh;
+  }

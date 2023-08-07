@@ -1,0 +1,103 @@
+<div class="ptb-80">
+  <div class="container">
+    <div class="row custom-wrapper">
+      <div class="col-md-12">
+        <form [formGroup]="leaveReportForm" ngNativeValidate (ngSubmit)="onSubmit()">
+          <div class="group-gap">
+            <div class="d-block my-3">
+              <div class="mb-3">
+                <select class="custom-select" formControlName="firstName">
+                  <option value="">Choose Employee Name</option>
+                  <option *ngFor="let emp of emps" [ngValue]="emp.firstName">{{emp.firstName}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-outline-secondary btn-lg btn-block">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="form-popup-bg container ">
+    <div class="form-container pading-tb">
+      <button id="btnCloseForm" class="close-button"> X </button>
+      <h1 id="center" class="text-center">Leave Report</h1>
+      <div class="table-responsive box">
+        <table id="leaveDataTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>From Date</th>
+              <th>To Date</th>
+              <th>Type</th>
+              <th>Reason</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let leave of leaves;index as i">
+              <td>{{i+1}}</td>
+              <td>{{leave.fromDate |date:'dd/MM/YYYY'}}</td>
+              <td>{{leave.toDate |date:'dd/MM/YYYY'}}</td>
+              <td *ngIf="leave.type=='Half'">{{leave.type}} Day ({{leave.slot}})
+              </td>
+              <td *ngIf="leave.type=='Full'">{{leave.type}} Day
+              </td>
+              <td>{{leave.reason}}</td>
+              <td *ngIf="leave.status=='Approved'" [ngClass]="'text-success'"> {{leave.status}}</td>
+              <td *ngIf="leave.status=='Rejected'" [ngClass]="'text-danger'"> {{leave.status}}</td>
+              <td *ngIf="leave.status=='Pending'" class="text-center" style="white-space:nowrap;">
+                <button type="button" class="btn btn-outline-danger"
+                  (click)="rejectdLeave(leave.id)">Reject</button>&nbsp;
+                <button type="button" class="btn btn-outline-success"
+                  (click)="approveLeave(leave.id)">Approve</button>&nbsp;
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="table-reponsive box">
+    <table id="dataTable" class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>From Date</th>
+          <th>To Date</th>
+          <th>Type</th>
+          <th>Reason</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let leave of leavess index as i">
+          <td>
+            <p>{{i+1}}</p>
+          </td>
+          <td>
+            <p>{{leave.name}}</p>
+          </td>
+          <td>
+            <p>{{leave.fromDate | date:'dd/MM/YYYY'}}</p>
+          </td>
+          <td>
+            <p>{{leave.toDate | date:'dd/MM/YYYY'}}</p>
+          </td>
+          <td *ngIf="leave.type=='Half'">{{leave.type}} Day ({{leave.slot}})
+          </td>
+          <td *ngIf="leave.type=='Full'">{{leave.type}} Day
+          </td>
+          <td>
+            <p>{{leave.reason}}</p>
+          </td>
+          <td>
+            <p [ngClass]="(leave.status=='Approved')?'text-success':'text-danger'">
+              {{leave.status}}</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

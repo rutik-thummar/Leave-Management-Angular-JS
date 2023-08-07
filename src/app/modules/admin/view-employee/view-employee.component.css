@@ -1,0 +1,25 @@
+.box{
+  padding:  40px 10px;
+  width: 85%;
+  margin: 0 auto;
+}
+.height{
+  height: auto;
+}
+.btn-outline-primary:hover {
+  color: #fff;
+  background-color: #17a2b8!important;
+  border-color: #17a2b8!important;
+}
+.btn-outline-primary {
+  color: #17a2b8;
+  border-color: #17a2b8;
+}
+table.dataTable > thead > tr > th{
+  text-align: center;
+}
+.ptb-80{
+  padding-top: 70px;
+  padding-bottom: 80px;
+}
+

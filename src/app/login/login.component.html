@@ -1,0 +1,46 @@
+<section class="vh-100">
+  <div class="container-fluid h-custom">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-md-9 col-lg-6 col-xl-5">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp" class="img-fluid"
+          alt="Sample image">
+      </div>
+      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+        <form #loginform="ngForm" ngNativeValidate>
+          <div class="divider d-flex align-items-center my-4">
+            <h3 class="text-center fw-bold mx-3 mb-0">Sign In</h3>
+          </div>
+          <div class="form-outline mb-4">
+            <input type="email" [(ngModel)]="register.email" name="email" class="form-control form-control-lg"
+              placeholder="Enter Email" pattern="^\w+@[a-zA-z_]+?\.[a-zA-Z]{2,3}$" required />
+            <label class="form-label"></label>
+          </div>
+          <div class="form-outline mb-3">
+            <input type="password" [(ngModel)]="register.password" name="password" class="form-control form-control-lg"
+              placeholder="Enter Password" required />
+            <label class="form-label"></label>
+          </div>
+          <div class="mt-4 pt-2">
+            <div class="d-flex flex-column text-center">
+              <button type="submit" class="btn btn-primary  mx-auto"
+                style="padding-left: 2.5rem; padding-right: 2.5rem;" (click)="login()">Login</button>
+              <p class="small mt-2 pt-1 mb-0">Don't have an account?
+                <!-- <a class="small" href="adminRegister">Admin Register</a> -->
+              </p>
+              <a class="small" href="employeeRegister">Employee Register</a>
+
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div
+    class="fixed-bottom flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
+    <div class="text-white mb-3 mb-md-0">
+      Copyright © 2023. All rights reserved | design by <a
+        href="https://www.google.com/search?q=git+valley+technologies&rlz=1C1YTUH_enIN982IN982&oq=Git+Valley&gs_lcrp=EgZjaHJvbWUqBggBEEUYOzIHCAAQABiABDIGCAEQRRg7MgkIAhAuGAoYgAQyCQgDEAAYChiABDIJCAQQLhgKGIAEMgYIBRBFGD0yBggGEEUYPDIGCAcQRRg80gEIMTYzOWowajeoAgCwAgA&sourceid=chrome&ie=UTF-8"
+        style="color: white"> Git Valley Technologies</a>
+    </div>
+  </div>
+</section>

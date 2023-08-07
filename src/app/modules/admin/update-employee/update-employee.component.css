@@ -1,0 +1,29 @@
+h2{
+    font-size: 37px;
+}
+label {
+    font-weight: 600;
+    color: #666;
+}
+
+.box8{
+  box-shadow: 10px -8px 30px 0px #999;
+  padding: 8rem 2rem;
+}
+.mx-t3{
+  margin-top: -3rem;
+}
+
+.btn-outline-primary:hover {
+  color: #fff;
+  background-color: #17a2b8!important;
+  border-color: #17a2b8!important;
+}
+.btn-outline-primary {
+  color: #17a2b8;
+  border-color: #17a2b8;
+}
+.ptb-80{
+  padding-top: 130px;
+  padding-bottom: 80px;
+}

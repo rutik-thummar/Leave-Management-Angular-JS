@@ -1,0 +1,92 @@
+<div class="pt-50">
+  <div class="student-profile py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="card shadow-sm">
+            <div class="card-header bg-transparent text-center">
+              <div *ngIf="gender">
+                <img class="profile_img" src="../../../../assets/img/man.png" alt="">
+              </div>
+              <div *ngIf="!gender">
+                <img class="profile_img" src="../../../../assets/img/woman.png" alt="">
+              </div>
+              <h3 style="text-transform: uppercase;">{{emp.firstName}} {{emp.lastName}}</h3>
+            </div>
+            <div class="card-body" style="text-transform: capitalize;">
+              <div class="row">
+                <div class="col-3">
+                  <p><strong>First Name:</strong>
+                </div>
+                <div class="col-9">
+                  <p>{{emp.firstName}}
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-3">
+                  <p><strong>Last Name:</strong>
+                </div>
+                <div class="col-9">
+                  <p>{{emp.lastName}}
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-3">
+                  <p><strong>Email:</strong>
+                </div>
+                <div style="text-transform: lowercase;" class="col-9">
+                  <p>{{emp.email}}
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-3">
+                  <p><strong>Mobile No:</strong>
+                </div>
+                <div class="col-9">
+                  <p>{{emp.mobileNo}}
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-3">
+                  <p><strong>Joining Date:</strong>
+                </div>
+                <div class="col-9">
+                  <p>{{emp.joiningDate |date:'dd/MM/YYYY'}}
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-3">
+                  <p><strong>Designation:</strong>
+                </div>
+                <div class="col-9">
+                  <p>{{emp.designation}}
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-3">
+                  <p><strong>Salary:</strong>
+                </div>
+                <div class="col-9">
+                  <p>{{emp.salary}}
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-3">
+                  <p><strong>Pay Slip:</strong>
+                </div>
+                <div class="col-2">
+                  <input class="form-control" type="month" [value]="curDate  | date:'YYYY-MM'"
+                    [max]="curDate  |date:'yyyy-MM'" id="monthOrYear" name="monthOrYear"
+                    [(ngModel)]="monthyear.monthOrYear">
+                </div>
+                <div class="col-7">
+                  <button type="submit" class="btn btn-outline-primary" (click)="download()">Download</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

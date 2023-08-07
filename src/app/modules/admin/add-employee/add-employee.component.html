@@ -1,0 +1,58 @@
+<div class="container ptb-80">
+  <form #form='ngForm' ngNativeValidate>
+    <div class="row jumbotron box8">
+      <div class="col-sm-12 mx-t3 mb-4">
+        <h2 class="text-center text-info">Add Employee</h2>
+      </div>
+      <div class="col-sm-6 form-group">
+        <label>First Name</label>
+        <input type="text" class="form-control" name="firstName" pattern="[a-zA-Z][a-zA-Z ]+"  [(ngModel)]="emp.firstName"
+          placeholder="Enter your first name" required>
+      </div>
+      <div class="col-sm-6 form-group">
+        <label>Last Name</label>
+        <input type="text" class="form-control" name="lastName"  pattern="[a-zA-Z][a-zA-Z ]+" [(ngModel)]="emp.lastName"
+          placeholder="Enter your last name" required>
+      </div>
+      <div class="col-sm-6 form-group">
+        <label >Joining Date</label>
+        <input type="date"  class="form-control" name="joiningDate"  [(ngModel)]="emp.joiningDate">
+      </div>
+      <div class="col-sm-6 form-group">
+        <label>Mobile No</label>
+        <input type="tel" minlength="10" maxlength="10" class="form-control" pattern="[789][0-9]{9}" name="mobileNo"
+          [(ngModel)]="emp.mobileNo" placeholder="Enter your mobile number" required>
+      </div>
+      <div class="col-sm-6 form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" name="email" id="email" [(ngModel)]="emp.email"
+          placeholder="Enter your email" required>
+      </div>
+      <div class="col-sm-6 form-group">
+        <label for="address-1">Salary</label>
+        <input type="number" class="form-control" name="salary" [(ngModel)]="emp.salary" placeholder="Enter your salary"
+          required>
+      </div>
+      <div class="col-sm-6 form-group  ">
+        <label for="address-2">Designation</label>
+        <input type="text" class="form-control" name="designation" [(ngModel)]="emp.designation"
+          placeholder="Enter your designation" required>
+      </div>
+      <div class="col-sm-6 form-group">
+        <label for="address-2">Choose your gender:</label><br>
+        <label>
+          <input type="radio" name="gender" value="Male" [(ngModel)]="emp.gender"> Male
+        </label>
+        &nbsp;
+        <label>
+          <input type="radio" name="gender" value="Female" [(ngModel)]="emp.gender"> Female
+        </label>
+      </div>
+      <div class="col-sm-12 form-group">
+        <button class="btn btn-outline-primary float-right"  style=" margin-right: 388px; margin-bottom: -30px;  width: 119px;" (click)="addEmployee()">Add</button>
+        <button type="button" class="btn btn-outline-secondary float-right" style="margin-right: 18px; width: 119px "
+          routerLink="../view">Back</button>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,8 @@
+table.dataTable>thead>tr>th {
+  text-align: center;
+}
+
+.ptb-80 {
+  padding-top: 100px;
+  padding-bottom: 80px;
+}

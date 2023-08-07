@@ -1,0 +1,80 @@
+.box {
+  padding: 20px 10px;
+  max-width: 65rem;
+  margin: 0 auto;
+}
+
+.form-popup-bg {
+  position: absolute;
+  top:0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  visibility: hidden;
+}
+
+.form-popup-bg.is-visible {
+  opacity: 0.9;
+  visibility: visible;
+}
+
+.form-container {
+  background-color: #e9ecef;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width:60rem;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  padding: 40px;
+  color: #181717;
+}
+
+.close-button {
+  background: none;
+  color: black;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: solid 1px #e9ecef;
+}
+
+.form-popup-bg:before {
+  content: '';
+  background-color: #fff;
+  opacity: .25;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.box1{
+visibility: hidden;
+}
+
+table.dataTable > thead > tr > th{
+  text-align: center;
+
+}
+table > tbody > tr > td{
+  text-align: center;
+}
+.ptb-80{
+  padding-top: 100px;
+  padding-bottom: 80px;
+}
+.pading-tb{
+  margin-top: 13rem;
+  padding-bottom: 9rem;
+}

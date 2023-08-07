@@ -1,0 +1,47 @@
+ <div class="container ptb-80">
+    <form #form='ngForm' ngNativeValidate>
+      <div class="row jumbotron box8">
+        <div class="col-sm-12 mx-t3 mb-4">
+          <h2 class="text-center text-info">Update Employee</h2>
+        </div>
+        <input type="hidden" class="form-control" name="id" [(ngModel)]="emp.id" >
+        <div class="col-sm-6 form-group">
+          <label for="firstname">First Name</label>
+          <input type="text" class="form-control" name="firstName" [(ngModel)]="emp.firstName" pattern="[a-zA-Z][a-zA-Z ]+" placeholder="Enter your first name" required>
+        </div>
+        <div class="col-sm-6 form-group">
+          <label for="lastname">Last Name</label>
+          <input type="text" class="form-control" name="lastName" [(ngModel)]="emp.lastName" pattern="[a-zA-Z][a-zA-Z ]+"  placeholder="Enter your last name" required>
+        </div>
+        <div class="col-sm-6 form-group">
+            <label for="joinning-date">Joining Date</label>
+            <input type="date" class="form-control" name="joiningDate" [(ngModel)]="emp.joiningDate"  placeholder="Enter a joining date" required>
+          </div>
+          <div class="col-sm-6 form-group">
+            <label for="mobile">Mobile No</label>
+            <input type="tel" class="form-control" name="mobileNo" [(ngModel)]="emp.mobileNo"  pattern="[789][0-9]{9}"  placeholder="Enter your mobile number" required>
+          </div>
+        <div class="col-sm-6 form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" name="email" id="email" [(ngModel)]="emp.email"  placeholder="Enter your email" required>
+        </div>
+        <div class="col-sm-6 form-group">
+          <label for="salary">Salary</label>
+          <input type="number" class="form-control" name="salary" [(ngModel)]="emp.salary"  placeholder="Enter your salary" required>
+        </div>
+        <div class="col-sm-6 form-group  ">
+          <label for="address-2">Designation</label>
+          <input type="text" class="form-control" name="designation" [(ngModel)]="emp.designation" placeholder="Enter your designation" required>
+        </div>
+        <div class="col-sm-6 form-group">
+          <label for="gender">Choose your gender:</label><br>
+          <input type="radio" name="gender" value="Male" [(ngModel)]="emp.gender"> Male
+          <input  type="radio" name="gender" value="Female" [(ngModel)]="emp.gender"> Female
+        </div>
+        <div class="col-sm-12 form-group mb-0">
+          <button class="btn btn-outline-primary float-right" style=" margin-right: 388px; margin-bottom: -30px;  width: 119px;"  (click)="updateEmployee()" >Update</button>
+          <button type="button" class="btn btn-outline-secondary  float-right" style="margin-right: 18px; width: 119px" routerLink="../../view">Back</button>
+        </div>
+      </div>
+    </form>
+  </div>
